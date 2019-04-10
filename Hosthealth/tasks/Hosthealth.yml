@@ -1,0 +1,11 @@
+---
+# tasks file for Hosthealth
+
+ - name: Starting Host health check
+   shell: oc get pods
+   register: result
+
+ - debug:
+     msg: "{{result.stdout}}"
+ #  when: result.stdout | search('Stopped')
+

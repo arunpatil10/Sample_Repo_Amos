@@ -1,0 +1,36 @@
+- name: Verify that systemd units are configured as expected for the host
+  shell: "systemctl status atomic-openshift-master-controllers"
+  register: command1_output
+  tag: p1
+  
+          
+        - debug: 
+            var: command1_output   #or 
+            msg: "testcase is passed"
+          when: 'running' in command1_output 
+          tag: p1     
+          
+        - name: Verify that systemd units are configured as expected for the host2
+          shell: "systemctl status atomic-openshift-master-api"
+          register: command2_output   #to stored output
+          tag: p1
+          
+        - debug: 
+            var: command1_output   #or 
+            msg: "testcase is passed"
+          when: 'running' in command1_output 
+          tag: p1     
+        - debug: 
+            var: command2_output
+          when: 'running' in command1_output
+          tag: p1
+            
+         - name: Verify that systemd units are configured as expected for the host2
+          shell: "systemctl status atomic-openshift-master-api"
+          register: command2_output   #to stored output
+        - debug: 
+            var: command1_output   #or 
+            msg: "testcase is passed"
+          when: 'running' in command1_output            
+        - debug: 
+            var: command2_output

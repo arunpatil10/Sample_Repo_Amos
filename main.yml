@@ -1,0 +1,15 @@
+ ---
+ 
+ - hosts: master
+   roles:
+      - Hosthealth
+#      - Routerhealth
+#      - Registryhealth
+#      - Pods_status
+#      - Storage_check
+#      - Api_service_status
+#      - MTU_size_check
+#      - Docker_storage_check
+#      - Complete_env_health
+#      - Etcd_health
+#      - Network_connectivity_status
